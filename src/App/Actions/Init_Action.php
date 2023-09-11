@@ -18,6 +18,7 @@ class Init_Action extends Action_Base {
 			'allow_use_statements' => true,
 			'allow_includes_and_requires' => false,
 			'require_include_blacklist' => [],
+			'allow_static_calls' => false,
 		];
 
 		$basic_config_json = json_encode($basic_config, JSON_PRETTY_PRINT);

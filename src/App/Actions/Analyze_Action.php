@@ -33,6 +33,7 @@ class Analyze_Action extends Action_Base {
 		'allowIncludes',
 		'requireIncludeBlacklist',
 		'namespaceBlacklist',
+		'allowStaticCalls',
 	];
 
 	/**

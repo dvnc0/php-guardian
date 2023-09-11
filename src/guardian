@@ -24,7 +24,7 @@ Application::create('guardian')
 	->helpTemplate(APP_ROOT . '/App/templates/help.txt')
 	->command(
 		Command::create('init')
-			->about('Initialize a new project')
+			->about('Initialize a new project with a base configuration file')
 			->action(Init_Action::class)
 			->save()
 	)

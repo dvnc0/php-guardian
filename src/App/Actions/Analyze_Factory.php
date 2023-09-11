@@ -6,6 +6,7 @@ namespace Guardian\Actions;
 use Guardian\Actions\Traits\Strict_Types_Trait;
 use Guardian\Actions\Traits\Use_Statement_Trait;
 use Guardian\Actions\Traits\Includes_Trait;
+use Guardian\Actions\Traits\Methods_Trait;
 use Guardian\Injector\Injector;
 
 class Analyze_Factory {
@@ -15,6 +16,7 @@ class Analyze_Factory {
 	use Strict_Types_Trait;
 	use Use_Statement_Trait;
 	use Includes_Trait;
+	use Methods_Trait;
 
 	public function __construct(Injector $Injector) {
 		$this->Injector = $Injector;

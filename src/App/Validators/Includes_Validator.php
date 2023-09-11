@@ -59,9 +59,11 @@ class Includes_Validator extends Validator_Base {
 
 		foreach($include_nodes as $node) {
 			$node_path = $node->expr->value;
-			if (in_array($node_path, $blacklist)) {
-				$error_info[1] = $node->getLine();
-				$errors[] = $error_info;
+			foreach($blacklist as $blacklist_path) {
+				if (strpos($node_path, $blacklist_path) !== false) {
+					$error_info[1] = $node->getLine();
+					$errors[] = $error_info;
+				}
 			}
 		}
 
