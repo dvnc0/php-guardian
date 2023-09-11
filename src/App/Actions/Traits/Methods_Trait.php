@@ -7,6 +7,15 @@ use Guardian\Util\Config_Keys;
 use Guardian\Validators\Methods_Validator;
 
 trait Methods_Trait {
+
+	/**
+	 * Check if static method calls are made
+	 * 
+	 * @param $ast
+	 * @param array $config
+	 * @param string $file_to_analyze
+	 * @return array|bool
+	 */
 	public function allowStaticCalls($ast, array $config, string $file_to_analyze): array|bool {
 		$allow_static_calls = $config[Config_Keys::KEY_ALLOW_STATIC_CALLS];
 		
