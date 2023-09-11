@@ -60,9 +60,12 @@ class Use_Validator extends Validator_Base {
 		foreach($use_nodes as $node) {
 			$node_path_parts = $node->uses[0]->name->parts;
 			$node_path = implode('\\', $node_path_parts);
-			if (in_array($node_path, $blacklist)) {
-				$error_info[1] = $node->getLine();
-				$errors[] = $error_info;
+			
+			foreach($blacklist as $blacklist_path) {
+				if (strpos($node_path, $blacklist_path) !== false) {
+					$error_info[1] = $node->getLine();
+					$errors[] = $error_info;
+				}
 			}
 		}
 
