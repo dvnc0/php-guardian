@@ -1,0 +1,45 @@
+#! /usr/bin/php
+<?php
+if (php_sapi_name() !== 'cli') {
+    exit;
+}
+
+require_once __DIR__ . '/vendor/autoload.php';
+
+use Clyde\Application;
+use Clyde\Args\Arg_Option;
+use Clyde\Commands\Command;
+use Clyde\Tools\Emoji;
+use Guardian\Actions\Analyze_Action;
+use Guardian\Actions\Init_Action;
+
+define('ROOT', getcwd());
+define('APP_ROOT', __DIR__);
+
+Application::create('guardian')
+	->about('Guardian is a PHP static analysis tool for ensuring the safety of critical code')
+	->version(Emoji::GREEN_BOX_WITH_CHECKMARK . ' v1.0.0')
+	->author(Emoji::ROBOT . ' dvnc0')
+	->website(Emoji::COMPASS . ' https://github.com/dvnc0/php-guardian')
+	->helpTemplate(APP_ROOT . '/App/templates/help.txt')
+	->command(
+		Command::create('init')
+			->about('Initialize a new project')
+			->action(Init_Action::class)
+			->save()
+	)
+	->command(
+		Command::create('analyze')
+			->about('Run Guardian on a file or directory')
+			->action(Analyze_Action::class)
+			->arg(
+				Arg_Option::create('file')
+					->help('File to analyze')
+					->longName('file')
+					->shortName('f')
+					->required(true)
+					->save()
+			)
+			->save()
+	)
+	->run();

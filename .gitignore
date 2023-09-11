@@ -1,0 +1,8 @@
+.gitconfig
+composer.lock
+vendor
+git-destroyer-config.json
+.phpunit.cache
+stan.php
+src/tests/coverage
+demo.php
