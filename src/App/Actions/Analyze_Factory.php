@@ -7,7 +7,7 @@ use Guardian\Actions\Traits\Strict_Types_Trait;
 use Guardian\Actions\Traits\Use_Statement_Trait;
 use Guardian\Actions\Traits\Includes_Trait;
 use Guardian\Actions\Traits\Methods_Trait;
-use Guardian\Injector\Injector;
+use Clyde\Injector\Injector;
 
 class Analyze_Factory {
 

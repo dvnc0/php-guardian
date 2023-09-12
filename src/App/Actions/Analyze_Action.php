@@ -9,18 +9,11 @@ use Clyde\Request\Request_Response;
 use Clyde\Tools\Table;
 use Guardian\Util\Parser\Tokenizer;
 use Guardian\Actions\Analyze_Factory;
-use Guardian\Injector\Injector;
-use Clyde\Application;
-use Clyde\Core\Event_Dispatcher;
 
+/**
+ * @property Injector $Injector
+ */
 class Analyze_Action extends Action_Base {
-	
-	/**
-	 * Injector
-	 *
-	 * @var Injector
-	 */
-	public Injector $Injector;
 
 	/**
 	 * Methods to run
@@ -35,17 +28,6 @@ class Analyze_Action extends Action_Base {
 		'namespaceBlacklist',
 		'allowStaticCalls',
 	];
-
-	/**
-	 * Construct
-	 *
-	 * @param Application      $Application      The Application instance
-	 * @param Event_Dispatcher $Event_Dispatcher The Event Dispatcher
-	 */
-	public function __construct(Application $Application, Event_Dispatcher $Event_Dispatcher){
-		parent::__construct($Application, $Event_Dispatcher);
-		$this->Injector = new Injector($Application);
-	}
 
 	/**
 	 * Execute

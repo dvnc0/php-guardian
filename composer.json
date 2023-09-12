@@ -19,7 +19,7 @@
     },
     "require": {
         "php": ">=8.0",
-        "danc0/clyde": "^0.5.4",
+        "danc0/clyde": "^0.6.0",
         "nikic/php-parser": "^4.17"
     },
    "require-dev": {
